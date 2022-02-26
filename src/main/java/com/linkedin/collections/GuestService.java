@@ -2,6 +2,7 @@ package com.linkedin.collections;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class GuestService {
 
@@ -14,8 +15,9 @@ public class GuestService {
 		 *  who have indicated the provided room as the first preference in their preferred
 		 *  room list. 
 		 */
-		
-		return null; 
+
+		List<Guest> listOfGuest = guests.stream().filter(guest -> guest.getPreferredRooms().indexOf(room) == 0 ).collect(Collectors.toList());
+		return listOfGuest;
 
 	}
 
@@ -27,6 +29,25 @@ public class GuestService {
 		 *  order they were inserted.
 		 */
 
+		if (guest.isLoyaltyProgramMember() && !checkinList.isEmpty()){
+
+			int i =0;
+			for (; i <this.checkinList.size(); i++) {
+				if (checkinList.get(i).isLoyaltyProgramMember()){
+					continue;
+				}
+				break;
+
+			}
+			this.checkinList.add(i, guest);
+		}else{
+			checkinList.add(guest);
+		}
+
+
+
+
+
 	}
 	
 	public void swapPosition(Guest guest1, Guest guest2) {
@@ -34,7 +55,25 @@ public class GuestService {
 		/*
 		 *  3.  Swaps the position of the two provided guests within the checkinList.
 		 *  If guests are not currently in the list no action is required.
-		 */ 
+		 */
+
+		if (checkinList.contains(guest1) && checkinList.contains(guest2)){
+			int positionOfGuest1= checkinList.indexOf(guest1);
+			int positionOfGuest2 = checkinList.indexOf(guest2);
+			checkinList.set(positionOfGuest1,guest2);
+			checkinList.set(positionOfGuest2,guest1);
+
+
+		}
+
+//		assertEquals(0, guests.indexOf(maria));
+//		assertEquals(1, guests.indexOf(sonia));
+//		assertEquals(2, guests.indexOf(siri));
+//		assertEquals(3, guests.indexOf(bob));
+//		assertEquals(4, guests.indexOf(john));
+
+
+
 
 	}
 

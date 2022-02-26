@@ -1,12 +1,10 @@
 package com.linkedin.collections;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 class GuestServiceTest {
 
@@ -38,8 +36,15 @@ class GuestServiceTest {
 		siri = new Guest("Siri", "Doe", true);
 
 		bob = new Guest("Bob", "Doe", false);
-	
+
 	}
+
+//	Maria
+//	Sonia
+//  Siri
+//	Bob
+	// John
+
 
 	@Test
 	void testFilterByFavoriteRoom() {
