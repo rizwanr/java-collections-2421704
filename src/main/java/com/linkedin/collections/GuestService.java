@@ -1,7 +1,6 @@
 package com.linkedin.collections;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class GuestService {
@@ -44,8 +43,10 @@ public class GuestService {
 			checkinList.add(guest);
 		}
 
-
-
+//		Comparator<Guest> programComp = Comparator.comparing(Guest::isLoyaltyProgramMember).reversed();
+//		Queue<Guest> checkinQueue = new PriorityQueue<>(programComp);
+//		checkinQueue.add(guest);
+//		System.out.println(checkinQueue);
 
 
 	}
