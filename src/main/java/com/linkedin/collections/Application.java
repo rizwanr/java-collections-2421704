@@ -1,9 +1,6 @@
 package com.linkedin.collections;
 
-import java.util.ArrayDeque;
-import java.util.Comparator;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.*;
 
 public class Application {
 
@@ -48,6 +45,34 @@ public class Application {
 		System.out.println(guest1);
 
 
+		//implementing Stack using ArrayDeque
+		Deque<String> messageStack = new ArrayDeque<>();
+		messageStack.push("Message 1");
+		messageStack.push("Message 2");
+		messageStack.push("Message 3");
+		messageStack.push("Message 4");
+		print(messageStack);
+
+		System.out.println(messageStack.pop());
+		messageStack.push("Message 4");
+		System.out.println(messageStack.pop());
+		System.out.println(messageStack.peek());
+
+		print(messageStack);
+
+	}
+
+	public static void print(Deque<String> queue) {
+
+		System.out.format("%n--Queue Contents--%n");
+
+		int x = 0;
+		for(String message : m) {
+			System.out.format("%x: %s %s %n", x++, m.toString(), x == 1 ? "(Head)":"");
+		}
+		
+		System.out.println("");
+		
 	}
 
 	public static void print(Queue<Guest> queue) {
@@ -58,8 +83,7 @@ public class Application {
 		for(Guest guest : queue) {
 			System.out.format("%x: %s %s %n", x++, guest.toString(), x == 1 ? "(Head)":"");
 		}
-		
+
 		System.out.println("");
-		
+
 	}
-}
